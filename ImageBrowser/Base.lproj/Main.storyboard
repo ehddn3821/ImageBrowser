@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tZt-ay-IQO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--이미지 검색기-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="ImageBrowser" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-gj-Zvk">
-                                <rect key="frame" x="87" y="159" width="240" height="240"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-gj-Zvk">
+                                <rect key="frame" x="87" y="203" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Wro-KF-XwV"/>
                                     <constraint firstAttribute="width" constant="240" id="z6h-ew-JiB"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색어를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxf-qj-cNy">
-                                <rect key="frame" x="20" y="534" width="294" height="35"/>
+                                <rect key="frame" x="20" y="578" width="294" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="4lC-da-0Rz"/>
                                 </constraints>
@@ -33,7 +34,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="grr-pC-tzd">
-                                <rect key="frame" x="74" y="454" width="266.5" height="50"/>
+                                <rect key="frame" x="74" y="498" width="266.5" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="nJW-9A-gTR">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -51,7 +52,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggL-vq-Fd4">
-                                <rect key="frame" x="324" y="534" width="70" height="35"/>
+                                <rect key="frame" x="324" y="578" width="70" height="35"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="DaQ-2M-l1C"/>
@@ -63,6 +64,7 @@
                                 </state>
                                 <connections>
                                     <action selector="searchButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WL0-MW-KPZ"/>
+                                    <segue destination="0OH-mb-CMc" kind="show" id="QLC-8l-tGw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,13 +82,77 @@
                             <constraint firstItem="grr-pC-tzd" firstAttribute="top" secondItem="LCz-gj-Zvk" secondAttribute="bottom" constant="55" id="vCE-au-hgy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="이미지 검색기" id="vvl-ax-SXZ"/>
                     <connections>
+                        <outlet property="resultImageView" destination="LCz-gj-Zvk" id="skS-Pj-Nf7"/>
                         <outlet property="searchTextField" destination="vxf-qj-cNy" id="nJU-Ml-LQM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+            <point key="canvasLocation" x="1273.913043478261" y="105.80357142857143"/>
+        </scene>
+        <!--검색 결과-->
+        <scene sceneID="WjT-mT-uym">
+            <objects>
+                <viewController id="0OH-mb-CMc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NSf-1L-4e9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ioS-1a-uts">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zxm-sE-Ufy">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dfb-Lf-eJD">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IDf-F2-UVF">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KOX-rm-maY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ioS-1a-uts" firstAttribute="leading" secondItem="KOX-rm-maY" secondAttribute="leading" id="EiF-vh-iZh"/>
+                            <constraint firstItem="KOX-rm-maY" firstAttribute="trailing" secondItem="ioS-1a-uts" secondAttribute="trailing" id="HDD-jy-WYP"/>
+                            <constraint firstItem="ioS-1a-uts" firstAttribute="top" secondItem="KOX-rm-maY" secondAttribute="top" id="awq-MK-SH3"/>
+                            <constraint firstItem="KOX-rm-maY" firstAttribute="bottom" secondItem="ioS-1a-uts" secondAttribute="bottom" id="ywd-Zd-Wo7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="검색 결과" id="Xvq-Ql-eOU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5n-Nk-d5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="106"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PJ6-9E-nIL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tZt-ay-IQO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTX-oz-LUa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wW5-Ry-NFK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAi-VB-sOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="541" y="106"/>
         </scene>
     </scenes>
     <resources>

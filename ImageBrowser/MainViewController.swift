@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var resultImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
