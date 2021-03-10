@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="ImageBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="LCz-gj-Zvk">
+                                <rect key="frame" x="87" y="159" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Wro-KF-XwV"/>
+                                    <constraint firstAttribute="width" constant="240" id="z6h-ew-JiB"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색어를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxf-qj-cNy">
+                                <rect key="frame" x="20" y="534" width="294" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4lC-da-0Rz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="grr-pC-tzd">
+                                <rect key="frame" x="74" y="454" width="266.5" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="nJW-9A-gTR">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="8yE-gD-Yn8"/>
+                                            <constraint firstAttribute="height" constant="50" id="UfY-A0-nFR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미지를 검색해보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Etx-RP-8oN">
+                                        <rect key="frame" x="65" y="0.0" width="201.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggL-vq-Fd4">
+                                <rect key="frame" x="324" y="534" width="70" height="35"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="DaQ-2M-l1C"/>
+                                    <constraint firstAttribute="height" constant="35" id="L3e-HR-aZR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="검색">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WL0-MW-KPZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ggL-vq-Fd4" firstAttribute="top" secondItem="vxf-qj-cNy" secondAttribute="top" id="A6q-VM-xcL"/>
+                            <constraint firstItem="ggL-vq-Fd4" firstAttribute="leading" secondItem="vxf-qj-cNy" secondAttribute="trailing" constant="10" id="QAX-bk-kap"/>
+                            <constraint firstItem="vxf-qj-cNy" firstAttribute="top" secondItem="grr-pC-tzd" secondAttribute="bottom" constant="30" id="Tx2-oU-vUI"/>
+                            <constraint firstItem="grr-pC-tzd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aPH-4Y-grW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ggL-vq-Fd4" secondAttribute="trailing" constant="20" id="ap6-S9-1uH"/>
+                            <constraint firstItem="LCz-gj-Zvk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="onz-8M-OTv"/>
+                            <constraint firstItem="LCz-gj-Zvk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="pde-L8-nZK"/>
+                            <constraint firstItem="vxf-qj-cNy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pjQ-pe-dMN"/>
+                            <constraint firstItem="grr-pC-tzd" firstAttribute="top" secondItem="LCz-gj-Zvk" secondAttribute="bottom" constant="55" id="vCE-au-hgy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchTextField" destination="vxf-qj-cNy" id="nJU-Ml-LQM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image" width="512" height="512"/>
+        <image name="search" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
