@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35179B4A25FF76DD00618A8E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 35179B4925FF76DD00618A8E /* IQKeyboardManagerSwift */; };
+		35179B5225FF775500618A8E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35179B5025FF775500618A8E /* SearchCollectionViewCell.swift */; };
+		35179B5325FF775500618A8E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35179B5125FF775500618A8E /* SearchCollectionViewCell.xib */; };
+		35179B5625FF786A00618A8E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35179B5525FF786A00618A8E /* SearchViewController.swift */; };
 		3588A1B225F8F64A0064E249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588A1B125F8F64A0064E249 /* AppDelegate.swift */; };
 		3588A1B425F8F64A0064E249 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588A1B325F8F64A0064E249 /* SceneDelegate.swift */; };
 		3588A1B625F8F64A0064E249 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588A1B525F8F64A0064E249 /* MainViewController.swift */; };
@@ -16,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35179B5025FF775500618A8E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		35179B5125FF775500618A8E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		35179B5525FF786A00618A8E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3588A1AE25F8F64A0064E249 /* ImageBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3588A1B125F8F64A0064E249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3588A1B325F8F64A0064E249 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,12 +38,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35179B4A25FF76DD00618A8E /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35179B5825FF7CC800618A8E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3588A1B525F8F64A0064E249 /* MainViewController.swift */,
+				35179B5525FF786A00618A8E /* SearchViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3588A1A525F8F64A0064E249 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +73,11 @@
 		3588A1B025F8F64A0064E249 /* ImageBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				35179B5825FF7CC800618A8E /* ViewControllers */,
 				3588A1B125F8F64A0064E249 /* AppDelegate.swift */,
 				3588A1B325F8F64A0064E249 /* SceneDelegate.swift */,
-				3588A1B525F8F64A0064E249 /* MainViewController.swift */,
+				35179B5025FF775500618A8E /* SearchCollectionViewCell.swift */,
+				35179B5125FF775500618A8E /* SearchCollectionViewCell.xib */,
 				3588A1B725F8F64A0064E249 /* Main.storyboard */,
 				3588A1BA25F8F64C0064E249 /* Assets.xcassets */,
 				3588A1BC25F8F64C0064E249 /* LaunchScreen.storyboard */,
@@ -83,6 +102,9 @@
 			dependencies = (
 			);
 			name = ImageBrowser;
+			packageProductDependencies = (
+				35179B4925FF76DD00618A8E /* IQKeyboardManagerSwift */,
+			);
 			productName = ImageBrowser;
 			productReference = 3588A1AE25F8F64A0064E249 /* ImageBrowser.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +132,9 @@
 				Base,
 			);
 			mainGroup = 3588A1A525F8F64A0064E249;
+			packageReferences = (
+				35179B4825FF76DD00618A8E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 3588A1AF25F8F64A0064E249 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +151,7 @@
 			files = (
 				3588A1BE25F8F64C0064E249 /* LaunchScreen.storyboard in Resources */,
 				3588A1BB25F8F64C0064E249 /* Assets.xcassets in Resources */,
+				35179B5325FF775500618A8E /* SearchCollectionViewCell.xib in Resources */,
 				3588A1B925F8F64A0064E249 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35179B5625FF786A00618A8E /* SearchViewController.swift in Sources */,
 				3588A1B625F8F64A0064E249 /* MainViewController.swift in Sources */,
 				3588A1B225F8F64A0064E249 /* AppDelegate.swift in Sources */,
+				35179B5225FF775500618A8E /* SearchCollectionViewCell.swift in Sources */,
 				3588A1B425F8F64A0064E249 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +371,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35179B4825FF76DD00618A8E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35179B4925FF76DD00618A8E /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35179B4825FF76DD00618A8E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3588A1A625F8F64A0064E249 /* Project object */;
 }
