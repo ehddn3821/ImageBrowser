@@ -9,16 +9,16 @@ import UIKit
 
 class SearchCollectionViewCell: UICollectionViewCell {
     
+    var searchImageView = UIImageView()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         let screenWidth = UIScreen.main.bounds.width
         let imageWidth = (screenWidth - 44) / 3
         
-        let searchImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageWidth))
-        searchImageView.image = UIImage(named: "image")
+        searchImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageWidth))
         
         self.contentView.addSubview(searchImageView)
     }
-
 }

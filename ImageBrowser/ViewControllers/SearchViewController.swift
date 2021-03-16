@@ -11,6 +11,8 @@ class SearchViewController: UIViewController {
 
     @IBOutlet var searchCollectionView: UICollectionView!
     
+    var imgArray: [Item] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,17 +21,38 @@ class SearchViewController: UIViewController {
         
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setImgArray), name: NSNotification.Name(rawValue: "imgArray"), object: nil)
+        
+        
     }
+    
+    // imgArray 배열에 넣기
+    @objc func setImgArray(_ noti: NSNotification) {
+        imgArray = noti.userInfo?["imgArray"] as! [Item]
+        DispatchQueue.main.async {
+            self.searchCollectionView.reloadData()
+        }
+    }
+    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imgArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
+        
+        let thumbnailImg = self.imgArray[indexPath.row].thumbnail
+        let encodedUrl = thumbnailImg.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let imgUrl = URL(string: "\(encodedUrl)")!
+        let imgData = try? Data(contentsOf: imgUrl)
+        if imgData != nil {
+            cell.searchImageView.image = UIImage(data: imgData!)
+        }
         
         return cell
     }
