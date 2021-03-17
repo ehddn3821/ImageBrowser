@@ -16,7 +16,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
         
         let screenWidth = UIScreen.main.bounds.width
         let imageWidth = (screenWidth - 44) / 3
-        
         searchImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageWidth))
         
         self.contentView.addSubview(searchImageView)

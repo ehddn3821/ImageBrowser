@@ -22,14 +22,15 @@ class SearchViewController: UIViewController {
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
         
+        // MainViewController에서 넘겨준 imgArray 받기
         NotificationCenter.default.addObserver(self, selector: #selector(setImgArray), name: NSNotification.Name(rawValue: "imgArray"), object: nil)
-        
-        
     }
     
     // imgArray 배열에 넣기
     @objc func setImgArray(_ noti: NSNotification) {
         imgArray = noti.userInfo?["imgArray"] as! [Item]
+        
+        // 컬렉션뷰 리로드
         DispatchQueue.main.async {
             self.searchCollectionView.reloadData()
         }
@@ -37,6 +38,7 @@ class SearchViewController: UIViewController {
     
 }
 
+// MARK: - 컬렉션뷰
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

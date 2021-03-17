@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="35" id="4lC-da-0Rz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="grr-pC-tzd">
                                 <rect key="frame" x="74" y="498" width="266.5" height="50"/>
@@ -94,7 +94,7 @@
         <!--검색 결과-->
         <scene sceneID="WjT-mT-uym">
             <objects>
-                <viewController id="0OH-mb-CMc" customClass="SearchViewController" customModule="ImageBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="0OH-mb-CMc" customClass="SearchViewController" customModule="ImageBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSf-1L-4e9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
