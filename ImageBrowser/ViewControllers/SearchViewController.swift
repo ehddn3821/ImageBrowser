@@ -56,7 +56,17 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.searchImageView.image = UIImage(data: imgData!)
         }
         
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("imgArray"), object: nil)
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 선택한 셀의 이미지 정보를 DetailViewController로 넘겨주기
+        let imgDic: [String: Any] = ["selectImg": self.imgArray[indexPath.row].link]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "selectImg"), object: nil, userInfo: imgDic)
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

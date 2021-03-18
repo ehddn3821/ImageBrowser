@@ -19,6 +19,7 @@
 		3588A1B925F8F64A0064E249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3588A1B725F8F64A0064E249 /* Main.storyboard */; };
 		3588A1BB25F8F64C0064E249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3588A1BA25F8F64C0064E249 /* Assets.xcassets */; };
 		3588A1BE25F8F64C0064E249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3588A1BC25F8F64C0064E249 /* LaunchScreen.storyboard */; };
+		358E586F26036E320005BC54 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 358E586E26036E320005BC54 /* Toast */; };
 		35B92CB42600DDE000E9EE68 /* APIKEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B92CB32600DDE000E9EE68 /* APIKEY.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358E586F26036E320005BC54 /* Toast in Frameworks */,
 				35179B5F25FF927A00618A8E /* SwiftyJSON in Frameworks */,
 				35179B4A25FF76DD00618A8E /* IQKeyboardManagerSwift in Frameworks */,
 				35179B5B25FF926000618A8E /* Alamofire in Frameworks */,
@@ -113,6 +115,7 @@
 				35179B4925FF76DD00618A8E /* IQKeyboardManagerSwift */,
 				35179B5A25FF926000618A8E /* Alamofire */,
 				35179B5E25FF927A00618A8E /* SwiftyJSON */,
+				358E586E26036E320005BC54 /* Toast */,
 			);
 			productName = ImageBrowser;
 			productReference = 3588A1AE25F8F64A0064E249 /* ImageBrowser.app */;
@@ -145,6 +148,7 @@
 				35179B4825FF76DD00618A8E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				35179B5925FF926000618A8E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				35179B5D25FF927A00618A8E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				358E586D26036E320005BC54 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 3588A1AF25F8F64A0064E249 /* Products */;
 			projectDirPath = "";
@@ -409,6 +413,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		358E586D26036E320005BC54 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -426,6 +438,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 35179B5D25FF927A00618A8E /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		358E586E26036E320005BC54 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 358E586D26036E320005BC54 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
